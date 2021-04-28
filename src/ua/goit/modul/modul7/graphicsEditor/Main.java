@@ -4,17 +4,20 @@ import ua.goit.modul.modul7.graphicsEditor.Shapes.*;
 
 public class Main {
     public static void main(String[] args) {
-        Shape circle = new Circle();
-        Shape line = new Line();
-        Shape oval = new Oval();
-        Shape point = new Point();
-        Shape quad = new Quad();
+        Quad quad = new Quad();
+        Circle circle = new Circle();
+        Line line = new Line();
+        Oval oval = new Oval();
+        Point point = new Point();
 
-        System.out.println(circle.getShapeName());
-        System.out.println(line.getShapeName());
-        System.out.println(oval.getShapeName());
-        System.out.println(point.getShapeName());
-        System.out.println(quad.getShapeName());
+
+        AreaPrinter areaPrinter = new AreaPrinter();
+        areaPrinter.printArea( quad );
+        areaPrinter.printArea( circle );
+        areaPrinter.printArea( line );
+        areaPrinter.printArea( oval );
+        areaPrinter.printArea( point );
 
     }
+
 }

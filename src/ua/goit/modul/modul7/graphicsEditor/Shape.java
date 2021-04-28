@@ -4,6 +4,7 @@ public class Shape implements ShapeName {
 
     @Override
     public String getShapeName() {
-        return getShapeName();
+        return "ShapeName";
     }
+
 }
