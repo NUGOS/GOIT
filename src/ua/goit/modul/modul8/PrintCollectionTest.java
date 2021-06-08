@@ -1,14 +1,14 @@
 package ua.goit.modul.modul8;
 
-public class PrintCollection {
+public class PrintCollectionTest {
     public void PrintCollectionMyArrayList() {
         MyArrayList<String> myArrayList = new MyArrayList<>();
 
         // add values in Array
         System.out.println("\u001B[32m ***add values in Array*** \u001B[0m");
-        myArrayList.add("My");
-        myArrayList.add("Array");
-        myArrayList.add("List");
+        myArrayList.add("alpha");
+        myArrayList.add("beta");
+        myArrayList.add("gamma");
         System.out.println(myArrayList);
 
         // get size Array
@@ -31,16 +31,12 @@ public class PrintCollection {
 
         // new size in Array
         System.out.println("\u001B[32m ***new size in Array*** \u001B[0m");
+        myArrayList.add("alpha");
+        myArrayList.add("beta");
+        myArrayList.add("gamma");
         myArrayList.add(1);
         myArrayList.add(2);
         myArrayList.add(3);
-        myArrayList.add(4);
-        myArrayList.add(5);
-        myArrayList.add("A");
-        myArrayList.add("B");
-        myArrayList.add("C");
-        myArrayList.add("D");
-        myArrayList.add("E");
         System.out.println(myArrayList);
     }
 
@@ -48,10 +44,9 @@ public class PrintCollection {
         MyQueue<String> myQueue = new MyQueue<>();
 
         System.out.println("\u001B[32m ***add values in Queue*** \u001B[0m");
-        myQueue.add("My");
-        myQueue.add("Queue");
-        myQueue.add(1);
-        myQueue.add(2);
+        myQueue.add("alpha");
+        myQueue.add("beta");
+        myQueue.add("gamma");
         System.out.println(myQueue);
 
         System.out.println("\u001B[32m ***remove index in Queue*** \u001B[0m");
@@ -72,25 +67,70 @@ public class PrintCollection {
         myQueue.clear();
         System.out.println(myQueue);
     }
+
     public void PrintCollectionMyHashMap() {
-        MyHashMap<String, Integer> myHashMap = new MyHashMap<>();
-        myHashMap.put("First", 1);
-        myHashMap.put("Two", 2);
-        myHashMap.put("Three", 3);
-        myHashMap.put("Four", 4);
-        myHashMap.put("Five", 5);
-        myHashMap.display();
-        System.out.println("******");
-        System.out.println("Get value is: " + myHashMap.get("Five"));
-        System.out.println("******");
-        System.out.println("Size is: " + myHashMap.size());
-        System.out.println("******");
-        System.out.println("Capacity is: " + myHashMap.table.length);
-        System.out.println("******");
-        myHashMap.remove("Five");
-        myHashMap.display();
-        System.out.println("******");
+        MyHashMap<String, String> myHashMap = new MyHashMap<>();
+        System.out.println("\u001B[32m ***add key and value*** \u001B[0m");
+        myHashMap.put("1", "alpha");
+        myHashMap.put("2", "beta");
+        myHashMap.put("3", "gamma");
+        myHashMap.printMyHashMap();
+        System.out.println("\u001B[32m ***size myHashMap*** \u001B[0m");
+        System.out.println(myHashMap.size());
+        System.out.println("\u001B[32m ***returns the Object value by key 3*** \u001B[0m");
+        System.out.println(myHashMap.get("3"));
+        System.out.println("\u001B[32m ***removes a key pair 2*** \u001B[0m");
+        myHashMap.remove("2");
+        System.out.println("\u001B[32m ***print MyHashMap*** \u001B[0m");
+        myHashMap.printMyHashMap();
+        System.out.println("\u001B[32m ***clear MyHashMap*** \u001B[0m");
         myHashMap.clear();
-        myHashMap.display();
+        System.out.println("\u001B[32m ***size myHashMap*** \u001B[0m");
+        System.out.println(myHashMap.size());
+    }
+
+    public void PrintCollectionMyLinkedList() {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>();
+        System.out.println("\u001B[32m ***add value in myLinkedList*** \u001B[0m");
+        myLinkedList.add("alpha");
+        myLinkedList.add("beta");
+        myLinkedList.add("gamma");
+        System.out.println(myLinkedList);
+        System.out.println("\u001B[32m ***returns the element at the index 2*** \u001B[0m");
+        System.out.println(myLinkedList.get(2));
+        System.out.println("\u001B[32m ***size myLinkedList*** \u001B[0m");
+        System.out.println(myLinkedList.size());
+        System.out.println("\u001B[32m ***remove index 1 myLinkedList*** \u001B[0m");
+        myLinkedList.remove(1);
+        System.out.println("\u001B[32m ***print myLinkedList*** \u001B[0m");
+        System.out.println(myLinkedList);
+        System.out.println("\u001B[32m ***size myLinkedList*** \u001B[0m");
+        System.out.println(myLinkedList.size());
+        System.out.println("\u001B[32m ***clear myLinkedList*** \u001B[0m");
+        myLinkedList.clear();
+        System.out.println("\u001B[32m ***size myLinkedList*** \u001B[0m");
+        System.out.println(myLinkedList.size());
+    }
+
+    public void PrintCollectionMyStack() {
+        MyStack<Object> myStack = new MyStack<>();
+        System.out.println("\u001B[32m ***add value in myStack*** \u001B[0m");
+        myStack.push("alpha");
+        myStack.push("beta");
+        myStack.push("gamma");
+        System.out.println(myStack);
+        System.out.println("\u001B[32m ***size myStack*** \u001B[0m");
+        System.out.println(myStack.size());
+        System.out.println("\u001B[32m ***remove index in myStack*** \u001B[0m");
+        myStack.remove(1);
+        System.out.println(myStack);
+        System.out.println("\u001B[32m ***returns the first element in myStack*** \u001B[0m");
+        System.out.println(myStack.peek());
+        System.out.println("\u001B[32m ***returns the first element and then removes it in the myStack*** \u001B[0m");
+        System.out.println(myStack.pop());
+        System.out.println(myStack + " - myStack");
+        System.out.println("\u001B[32m ***clear myStack*** \u001B[0m");
+        myStack.clear();
+        System.out.println(myStack.size()+" - size myStack");
     }
 }

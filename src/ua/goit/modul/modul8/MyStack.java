@@ -8,10 +8,6 @@ public class MyStack<E> {
     private int size;
     private E[] elements = (E[]) new Object[DEFAULT_CAPACITY];
 
-    public E get(int index) {
-        return (E) elements[index];
-    }
-
     public void push(E e) {
         if (size == elements.length) {
             resize();

@@ -47,7 +47,7 @@ public class MyArrayList<T> {
         return size;
     }
 
-    private T get(int index) //возвращает элемент под индексом
+    public T get(int index) //возвращает элемент под индексом
     {
         return (T) array[index];
     }

@@ -69,8 +69,8 @@ public class MyHashMap<K, V> {
         }
     }
 
-    public void put(K key, V value) {
-        int index = index( key );
+    public void put(String key, String value) {
+        int index = index((K) key);
         MyNode newMyNode = new MyNode( key, value, null );
         if (table[index] == null) {
             table[index] = newMyNode;
@@ -79,7 +79,7 @@ public class MyHashMap<K, V> {
             MyNode<K, V> currentNode = table[index];
             while (currentNode != null) {
                 if (currentNode.getKey().equals( key )) {
-                    currentNode.setValue( value );
+                    currentNode.setValue((V) value);
                     break;
                 }
                 previousNode = currentNode;
@@ -144,6 +144,21 @@ public class MyHashMap<K, V> {
             return 0;
         }
         return Math.abs( key.hashCode() % capacity );
+    }
+    public void printMyHashMap() {
+        for (int i = 0; i < capacity; i++) {
+            if (table[i] != null) {
+                MyNode<K, V> e = table[i];
+                while (e != null) {
+                    System.out.println(String.format(e.getKey() +
+                            "=" + e.getValue()));
+                    e = e.next;
+                }
+            }
+        }
+        if (size == 0) {
+            System.out.println("null");
+        }
     }
 
 }

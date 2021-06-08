@@ -6,13 +6,37 @@ import java.util.Arrays;
 public class MyLinkedList<E> {
 
     static class MyNode<E> {
-        E current;
-        MyNode<E> next;
-        MyNode<E> prev;
+        private E current;
+        private MyNode<E> next;
+        private MyNode<E> prev;
 
         MyNode(MyNode<E> prev, E element, MyNode<E> next) {
-            this.current = element;
+            this.setCurrent(element);
+            this.setNext(next);
+            this.setPrev(prev);
+        }
+
+        public E getCurrent() {
+            return current;
+        }
+
+        public void setCurrent(E current) {
+            this.current = current;
+        }
+
+        public MyNode<E> getNext() {
+            return next;
+        }
+
+        public void setNext(MyNode<E> next) {
             this.next = next;
+        }
+
+        public MyNode<E> getPrev() {
+            return prev;
+        }
+
+        public void setPrev(MyNode<E> prev) {
             this.prev = prev;
         }
     }
@@ -28,7 +52,7 @@ public class MyLinkedList<E> {
         if (lastTemp == null) {
             first = newNode;
         } else {
-            lastTemp.next = newNode;
+            lastTemp.setNext(newNode);
         }
         size++;
     }
@@ -39,25 +63,25 @@ public class MyLinkedList<E> {
     }
 
     E unlink(MyNode<E> deleteElement) {
-        final E element = deleteElement.current;
-        final MyNode<E> next = deleteElement.next;
-        final MyNode<E> prev = deleteElement.prev;
+        final E element = deleteElement.getCurrent();
+        final MyNode<E> next = deleteElement.getNext();
+        final MyNode<E> prev = deleteElement.getPrev();
 
         if (prev == null) {
             first = next;
         } else {
-            prev.next = next;
-            deleteElement.prev = null;
+            prev.setNext(next);
+            deleteElement.setPrev(null);
         }
 
         if (next == null) {
             last = prev;
         } else {
-            next.prev = prev;
-            deleteElement.next = null;
+            next.setPrev(prev);
+            deleteElement.setNext(null);
         }
 
-        deleteElement.current = null;
+        deleteElement.setCurrent(null);
         size--;
         return element;
     }
@@ -79,7 +103,7 @@ public class MyLinkedList<E> {
 
     public E get(int index) {
         checkIndexElement( index );
-        return findIndex( index ).current;
+        return findIndex(index).getCurrent();
     }
 
     private void checkIndexElement(int index) {
@@ -91,7 +115,7 @@ public class MyLinkedList<E> {
     MyNode<E> findIndex(int index) {
         MyNode<E> findingIndex = first;
         for (int i = 0; i < index; i++) {
-            findingIndex = findingIndex.next;
+            findingIndex = findingIndex.getNext();
         }
         return findingIndex;
     }
@@ -99,8 +123,8 @@ public class MyLinkedList<E> {
     public E[] toArray() {
         Object[] result = new Object[size];
         int i = 0;
-        for (MyLinkedList.MyNode<E> x = first; x != null; x = x.next)
-            result[i++] = x.current;
+        for (MyLinkedList.MyNode<E> x = first; x != null; x = x.getNext())
+            result[i++] = x.getCurrent();
         return (E[]) result;
     }
 

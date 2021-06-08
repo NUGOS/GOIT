@@ -1,35 +1,36 @@
 package ua.goit.modul.modul8;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class MyQueue<E> {
     private Object[] array;
 
     public MyQueue() {
-        this.array = new Object[1];
+        this.array = new Object[10];
         this.size = size;
     }
 
     private int size;
 
-    void add(Object value) //добавляет элемент в конец
+    public void add(Object value) //добавляет элемент в конец
     {
         if (size == array.length) {
             Object[] newArray = new Object[array.length * 2];
-            System.arraycopy( array, 0, newArray, 0, array.length );
+            System.arraycopy(array, 0, newArray, 0, array.length);
             array = newArray;
         }
         array[size++] = (E) value;
     }
 
-    E remove(int index) //удаляет элемент под индексом
+    public E remove(int index) //удаляет элемент под индексом
     {
         if (index > size) {
             throw new NoSuchElementException();
         }
         int newSize = size - 1;
         if (newSize > index) {
-            System.arraycopy( array, index + 1, array, index, newSize - index );
+            System.arraycopy(array, index + 1, array, index, newSize - index);
         }
         array[size = newSize] = null;
         return null;
@@ -53,9 +54,14 @@ public class MyQueue<E> {
     }
 
     public E poll() {
-        return remove( 0 );
-
+        E firstElement = (E) array[0];
+        remove(0);
+        return firstElement;
     }
 
+    @Override
+    public String toString() {
+        return Arrays.toString(array);
+    }
 }
 
