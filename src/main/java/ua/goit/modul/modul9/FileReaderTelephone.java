@@ -11,14 +11,14 @@ public class FileReaderTelephone {
     private static final String VALIDATE_TWO = "\\(\\d{3}\\) \\d{3}-\\d{4}";
     private static String path;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        FileDialog();
+        fileDialog();
         System.out.println("Выбранный файл: " + path);
         read();
     }
 
-    private static String FileDialog() {
+    private static String fileDialog() {
         java.awt.FileDialog dialog = new FileDialog((Frame) null);
         dialog.setVisible(true);
         String directory = dialog.getDirectory();
@@ -32,7 +32,7 @@ public class FileReaderTelephone {
 
     }
 
-    private static void read() throws IOException {
+    private static void read() {
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
             String numbers = bufferedReader.readLine();
