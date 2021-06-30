@@ -1,4 +1,4 @@
-package ua.goit.modul.modul7.graphicsEditor;
+package ua.goit.modul.modul7.graphicseditor;
 
 public class AreaPrinter {
     public void printArea(Shape shape) {

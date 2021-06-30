@@ -1,6 +1,6 @@
-package ua.goit.modul.modul7.graphicsEditor;
+package ua.goit.modul.modul7.graphicseditor;
 
-import ua.goit.modul.modul7.graphicsEditor.Shapes.*;
+import ua.goit.modul.modul7.graphicseditor.shapes.*;
 
 public class Main {
     public static void main(String[] args) {

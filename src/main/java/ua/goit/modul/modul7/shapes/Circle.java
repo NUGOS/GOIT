@@ -1,6 +1,6 @@
-package ua.goit.modul.modul7.graphicsEditor.Shapes;
+package ua.goit.modul.modul7.graphicseditor.shapes;
 
-import ua.goit.modul.modul7.graphicsEditor.Shape;
+import ua.goit.modul.modul7.graphicseditor.Shape;
 
 public class Circle extends Shape {
     @Override
