@@ -1,6 +1,6 @@
-package ua.goit.modul.modul7.graphicseditor.shapes;
+package ua.goit.modul.modul7.shapes;
 
-import ua.goit.modul.modul7.graphicseditor.Shape;
+import ua.goit.modul.modul7.Shape;
 
 public class Quad extends Shape {
     @Override

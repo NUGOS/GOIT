@@ -14,18 +14,18 @@ public class FileReaderTelephone {
     public static void main(String[] args) {
 
         fileDialog();
-        System.out.println("Выбранный файл: " + path);
+        System.out.println( "Выбранный файл: " + path );
         read();
     }
 
     private static String fileDialog() {
-        java.awt.FileDialog dialog = new FileDialog((Frame) null);
-        dialog.setVisible(true);
+        java.awt.FileDialog dialog = new FileDialog( (Frame) null );
+        dialog.setVisible( true );
         String directory = dialog.getDirectory();
         String filename = dialog.getFile();
         dialog.dispose();
         if (directory == null || filename == null) {
-            System.out.println("Файл не выбран!");
+            System.out.println( "Файл не выбран!" );
             return directory;
         }
         return path = directory + filename;
@@ -34,11 +34,11 @@ public class FileReaderTelephone {
 
     private static void read() {
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
+        try (BufferedReader bufferedReader = new BufferedReader( new FileReader( path ) )) {
             String numbers = bufferedReader.readLine();
             while (numbers != null) {
-                if (isCorrectlyNumber(numbers)) {
-                    System.out.println(numbers);
+                if (isCorrectlyNumber( numbers )) {
+                    System.out.println( numbers );
                 }
                 numbers = bufferedReader.readLine();
             }
@@ -48,6 +48,6 @@ public class FileReaderTelephone {
     }
 
     private static boolean isCorrectlyNumber(String number) {
-        return Pattern.matches(VALIDATE_ONE, number) || Pattern.matches(VALIDATE_TWO, number);
+        return Pattern.matches( VALIDATE_ONE, number ) || Pattern.matches( VALIDATE_TWO, number );
     }
 }
