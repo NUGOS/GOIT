@@ -16,45 +16,48 @@ public class FileReaderCountSort {
         read();
     }
 
-    private static String fileDialog() {
-        java.awt.FileDialog dialog = new FileDialog( (Frame) null );
-        dialog.setVisible( true );
+    private static void fileDialog() {
+        java.awt.FileDialog dialog = new FileDialog((Frame) null);
+        dialog.setVisible(true);
         String directory = dialog.getDirectory();
         String filename = dialog.getFile();
         dialog.dispose();
         if (directory == null || filename == null) {
-            System.out.println( "Файл не выбран!" );
-            return directory;
+            System.out.println("Файл не выбран!");
+            return;
         }
-        return path = directory + filename;
+        path = directory + filename;
     }
 
     private static void read() {
-        try (BufferedReader reader = new BufferedReader( new FileReader( path ) )) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
 
             StringBuilder text = new StringBuilder();
             String line = reader.readLine();
             while (line != null) {
-                text.append( line + " " );
+                text.append(line)
+                    .append(" ");
                 line = reader.readLine();
             }
-            String[] words = text.toString().split( " " );
+            String[] words = text.toString()
+                                 .split(" ");
 
             Map<String, Integer> uniqueWords = new HashMap<>();
             for (String word : words) {
-                Integer counter = uniqueWords.get( word );
+                Integer counter = uniqueWords.get(word);
                 if (counter == null) {
                     counter = 0;
                 }
-                uniqueWords.put( word, counter + 1 );
+                uniqueWords.put(word, counter + 1);
             }
 
-            uniqueWords.keySet().stream()
-                    .sorted( Comparator.comparing( uniqueWords::get, Comparator.reverseOrder() ) )
-                    .forEach( word -> System.out.println( word + " - " + uniqueWords.get( word ) ) );
+            uniqueWords.keySet()
+                       .stream()
+                       .sorted(Comparator.comparing(uniqueWords::get, Comparator.reverseOrder()))
+                       .forEach(word -> System.out.println(word + " - " + uniqueWords.get(word)));
 
         } catch (IOException e) {
-            System.err.println( e.getMessage() );
+            System.err.println(e.getMessage());
         }
     }
 }
