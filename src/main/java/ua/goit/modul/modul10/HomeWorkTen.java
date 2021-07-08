@@ -2,33 +2,54 @@ package ua.goit.modul.modul10;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ReturnStringOddIndexAndSortUppercase {
+public class HomeWorkTen {
+
 
     public static void main(String[] args) {
-        List<Names> namesListObject = Arrays.asList(new Names(1, "Ivan"),
-                new Names(2, "John"),
-                new Names(3, "Peter"),
-                new Names(4, "Bill"));
-        List<String> nameListString = Arrays.asList("Ivan", "John", "Peter", "Bill", "Rodrigo", "Yen", "David");
 
-        System.out.println(ReturnStringOddIndex(namesListObject));
-        System.out.println(ReturnStringSort(nameListString));
+        List<String> nameListString = Arrays.asList("Ivan", "John", "Peter", "Bill", "Rodrigo", "Arnold", "Yen", "David");
+        String[] array = {"1, 2, 0", "4, 5"};
+        System.out.print("\u001B[32m ***Task #1*** \u001B[0m");
+        System.out.println("\u001B[31m Print ReturnStringOddIndex \u001B[0m");
+        System.out.println(ReturnStringOddIndex(nameListString));
+        System.out.print("\u001B[32m ***Task #2*** \u001B[0m");
+        System.out.println("\u001B[31m Print ReturnStringReversSort \u001B[0m");
+        System.out.println(ReturnStringReversSort(nameListString));
+        System.out.print("\u001B[32m ***Task #3*** \u001B[0m");
+        System.out.println("\u001B[31m Print ReturnStringSortArray \u001B[0m");
+        System.out.println(ReturnStringSortArray(array));
     }
 
-    public static String ReturnStringOddIndex(List<Names> namesList) {
+    /* Task 1 */
 
-        String result = namesList.stream()
-                                 .filter(person -> person.getId() % 2 != 0)
-                                 .map(Names::toString)
-                                 .collect(Collectors.joining(", "));
+    public static String ReturnStringOddIndex(List<String> nameListString) {
 
-        return result;
+        Iterator<String> myIterator = nameListString.stream()
+                                                    .iterator();
+        StringBuilder result = new StringBuilder("1. " + myIterator.next());
+
+        int i = 2;
+        while (myIterator.hasNext()) {
+            if (i++ % 2 == 0) {
+                myIterator.next();
+            } else {
+                result
+                        .append(", ")
+                        .append(i - 1)
+                        .append(". ")
+                        .append(myIterator.next());
+            }
+        }
+        return result.toString();
     }
 
-    public static String ReturnStringSort(List<String> nameListString) {
+    /* Task 2 */
+
+    public static String ReturnStringReversSort(List<String> nameListString) {
         String resultsort = nameListString.stream()
                                           .map(String::toUpperCase)
                                           .sorted(Comparator.reverseOrder())
@@ -36,35 +57,13 @@ public class ReturnStringOddIndexAndSortUppercase {
         return resultsort;
     }
 
-    static class Names {
-        private int id;
-        private String name;
+    /* Task 3 */
 
-        public Names(int id, String name) {
-            this.id = id;
-            this.name = name;
-        }
+    public static String ReturnStringSortArray(String[] array) {
+        String numbers = Arrays.stream(array)
+                               .collect(Collectors.joining(", "));
 
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public String toString() {
-            return id + ". " + name;
-        }
+        return numbers;
     }
 
 }
