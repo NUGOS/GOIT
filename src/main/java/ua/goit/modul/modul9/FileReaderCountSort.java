@@ -1,22 +1,29 @@
 package ua.goit.modul.modul9;
 
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+import static java.nio.file.Paths.*;
 
 public class FileReaderCountSort {
+
+    private static final String absoluteJsonPath = "src/main/resources/JSON.json";
     private static String path;
+
 
     public static void main(String[] args) {
         fileDialog();
-        read();
+        readFiles();
     }
 
-    private static void fileDialog() {
+    private static String fileDialog() {
         java.awt.FileDialog dialog = new FileDialog((Frame) null);
         dialog.setVisible(true);
         String directory = dialog.getDirectory();
@@ -24,40 +31,30 @@ public class FileReaderCountSort {
         dialog.dispose();
         if (directory == null || filename == null) {
             System.out.println("Файл не выбран!");
-            return;
+            return directory;
         }
-        path = directory + filename;
+        return path = directory + filename;
+
     }
 
-    private static void read() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+    private static void readFiles() {
 
-            StringBuilder text = new StringBuilder();
-            String line = reader.readLine();
-            while (line != null) {
-                text.append(line)
-                    .append(" ");
-                line = reader.readLine();
+        try {
+            List<String> stringListWorlds = Files.readAllLines(get(path));
+
+            for (String i:stringListWorlds){
+                System.out.println(Arrays.toString(new List[]{stringListWorlds}));
             }
-            String[] words = text.toString()
-                                 .split(" ");
-
-            Map<String, Integer> uniqueWords = new HashMap<>();
-            for (String word : words) {
-                Integer counter = uniqueWords.get(word);
-                if (counter == null) {
-                    counter = 0;
-                }
-                uniqueWords.put(word, counter + 1);
+            String [] buff = new String[0];
+            String[] array = stringListWorlds.toArray(buff);
+            System.out.println(stringListWorlds.size());
+            for (String i:array) {
+                System.out.println(Arrays.toString(array));
             }
-
-            uniqueWords.keySet()
-                       .stream()
-                       .sorted(Comparator.comparing(uniqueWords::get, Comparator.reverseOrder()))
-                       .forEach(word -> System.out.println(word + " - " + uniqueWords.get(word)));
+            System.out.println(array.length);
 
         } catch (IOException e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
