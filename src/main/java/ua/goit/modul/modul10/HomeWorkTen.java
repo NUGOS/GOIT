@@ -8,35 +8,35 @@ import java.util.stream.Collectors;
 public class ReturnStringOddIndexAndSortUppercase {
 
     public static void main(String[] args) {
-        List<Names> namesList = Arrays.asList(new Names(1, "Ivan"),
+        List<Names> namesListObject = Arrays.asList(new Names(1, "Ivan"),
                 new Names(2, "John"),
                 new Names(3, "Peter"),
                 new Names(4, "Bill"));
+        List<String> nameListString = Arrays.asList("Ivan", "John", "Peter", "Bill", "Rodrigo", "Yen", "David");
 
-        System.out.println(ReturnStringOddIndex(namesList));
-        System.out.println(ReturnStringSort(namesList));
+        System.out.println(ReturnStringOddIndex(namesListObject));
+        System.out.println(ReturnStringSort(nameListString));
     }
 
     public static String ReturnStringOddIndex(List<Names> namesList) {
 
         String result = namesList.stream()
-                .filter(person -> person.getId() % 2 != 0)
-                .map(Names::toString)
-                .collect(Collectors.joining(", "));
+                                 .filter(person -> person.getId() % 2 != 0)
+                                 .map(Names::toString)
+                                 .collect(Collectors.joining(", "));
 
         return result;
     }
 
-   public static String ReturnStringSort(List<Names> namesList) {
-        String resultsort = namesList.stream()
-                .filter()
-                .map(String::toUpperCase)
-                .sorted(Comparator.reverseOrder())
-                .collect(Collectors.joining(", "));
+    public static String ReturnStringSort(List<String> nameListString) {
+        String resultsort = nameListString.stream()
+                                          .map(String::toUpperCase)
+                                          .sorted(Comparator.reverseOrder())
+                                          .collect(Collectors.joining(", "));
         return resultsort;
     }
 
-    public static class Names {
+    static class Names {
         private int id;
         private String name;
 
