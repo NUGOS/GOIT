@@ -60,10 +60,12 @@ public class HomeWorkTen {
     /* Task 3 */
 
     public static String ReturnStringSortArray(String[] array) {
-        String numbers = Arrays.stream(array)
-                               .collect(Collectors.joining(", "));
-
-        return numbers;
+        List<String> numbersList = Arrays.asList(array);
+        String number = numbersList.stream()
+                                .sorted(Comparator.naturalOrder())
+                                .collect(Collectors.joining(", "));
+        System.out.println(numbersList);
+        return number;
     }
 
 }
