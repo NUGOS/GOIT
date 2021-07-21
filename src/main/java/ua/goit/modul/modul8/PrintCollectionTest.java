@@ -80,11 +80,16 @@ public class PrintCollectionTest {
         System.out.println("\u001B[32m ***returns the Object value by key 3*** \u001B[0m");
         System.out.println(myHashMap.get("3"));
         System.out.println("\u001B[32m ***removes a key pair 2*** \u001B[0m");
+        System.out.println("before");
+        myHashMap.printMyHashMap();
         myHashMap.remove("2");
+        System.out.println("after");
+        myHashMap.printMyHashMap();
         System.out.println("\u001B[32m ***print MyHashMap*** \u001B[0m");
         myHashMap.printMyHashMap();
         System.out.println("\u001B[32m ***clear MyHashMap*** \u001B[0m");
         myHashMap.clear();
+        myHashMap.printMyHashMap();
         System.out.println("\u001B[32m ***size myHashMap*** \u001B[0m");
         System.out.println(myHashMap.size());
     }
