@@ -1,7 +1,7 @@
 package ua.goit.modul.modul8;
 
 public class PrintCollectionTest {
-    public void PrintCollectionMyArrayList() {
+    public void printCollectionMyArrayList() {
         MyArrayList<String> myArrayList = new MyArrayList<>();
 
         // add values in Array
@@ -34,13 +34,13 @@ public class PrintCollectionTest {
         myArrayList.add("alpha");
         myArrayList.add("beta");
         myArrayList.add("gamma");
-        myArrayList.add(1);
-        myArrayList.add(2);
-        myArrayList.add(3);
+        myArrayList.add("1");
+        myArrayList.add("2");
+        myArrayList.add("3");
         System.out.println(myArrayList);
     }
 
-    public void PrintCollectionMyQueue() {
+    public void printCollectionMyQueue() {
         MyQueue<String> myQueue = new MyQueue<>();
 
         System.out.println("\u001B[32m ***add values in Queue*** \u001B[0m");
@@ -68,7 +68,7 @@ public class PrintCollectionTest {
         System.out.println(myQueue);
     }
 
-    public void PrintCollectionMyHashMap() {
+    public void printCollectionMyHashMap() {
         MyHashMap<String, String> myHashMap = new MyHashMap<>();
         System.out.println("\u001B[32m ***add key and value*** \u001B[0m");
         myHashMap.put("1", "alpha");
@@ -94,7 +94,7 @@ public class PrintCollectionTest {
         System.out.println(myHashMap.size());
     }
 
-    public void PrintCollectionMyLinkedList() {
+    public void printCollectionMyLinkedList() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         System.out.println("\u001B[32m ***add value in myLinkedList*** \u001B[0m");
         myLinkedList.add("alpha");
@@ -117,7 +117,7 @@ public class PrintCollectionTest {
         System.out.println(myLinkedList.size());
     }
 
-    public void PrintCollectionMyStack() {
+    public void printCollectionMyStack() {
         MyStack<Object> myStack = new MyStack<>();
         System.out.println("\u001B[32m ***add value in myStack*** \u001B[0m");
         myStack.push("alpha");

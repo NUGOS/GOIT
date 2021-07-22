@@ -3,7 +3,7 @@ package ua.goit.modul.modul8;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
-public class MyArrayList<T> {
+public class MyArrayList<E> {
     private Object[] array;
     private int size;
 
@@ -12,14 +12,14 @@ public class MyArrayList<T> {
         size = 0;
     }
 
-    void add(Object value) //добавляет элемент в конец
+     void add(E value) //добавляет элемент в конец
     {
         if (size == array.length) {
             Object[] newArray = new Object[array.length * 2];
             System.arraycopy( array, 0, newArray, 0, array.length );
             array = newArray;
         }
-        array[size++] = (T) value;
+        array[size++] = value;
     }
 
     void remove(int index) //удаляет элемент под индексом
@@ -47,9 +47,9 @@ public class MyArrayList<T> {
         return size;
     }
 
-    public T get(int index) //возвращает элемент под индексом
+    public E get(int index) //возвращает элемент под индексом
     {
-        return (T) array[index];
+        return (E) array[index];
     }
 
     @Override

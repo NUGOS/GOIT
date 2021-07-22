@@ -13,7 +13,7 @@ public class MyQueue<E> {
 
     private int size;
 
-    public void add(Object value) //добавляет элемент в конец
+    public void add(E value) //добавляет элемент в конец
     {
         if (size == array.length) {
             Object[] newArray = new Object[array.length * 2];
