@@ -10,7 +10,7 @@ public class HomeWorkTen {
     public static void main(String[] args) {
 
         List<String> nameListString = Arrays.asList("Ivan", "John", "Peter", "Bill", "Rodrigo", "Arnold", "Yen", "David");
-        String[] array = {"1, 2, 0", "4, 5"};
+        String[] array = {"1, 2, 0", "4, 200, 5", "3", "3"};
         System.out.print("\u001B[32m ***Task #1*** \u001B[0m");
         System.out.println("\u001B[31m Print ReturnStringOddIndex \u001B[0m");
         System.out.println(ReturnStringOddIndex(nameListString));
@@ -67,17 +67,16 @@ public class HomeWorkTen {
     // Task 3 - тут чет по условию непонятно, что нужно вернуть по тексту похоже на String.
     // Скоре всего нужно дорабтывать и работать не со стрингой, а с интами и их сортировать,
     // так как стринг 10 будет после единицы что не есть корректным
-
-    public static String ReturnStringSortArray(String[] array) {
+//{"1, 2, 0", "4, 200, 5", "3", "3"};
+    public static List<Integer> ReturnStringSortArray(String[] array) {
         List<String> numbersList = Arrays.asList(array);
         String number = numbersList.stream()
                                    .collect(Collectors.joining(", "));
-
-        String[] numberList = number.replaceAll("\\s+", "")
-                                    .split(",");
-        String numberSorted = Arrays.stream(numberList)
-                                    .sorted(Comparator.naturalOrder())
-                                    .collect(Collectors.joining(","));
+        List<Integer> numberSorted =
+                Arrays.stream(number.split(", "))
+                      .map(Integer::parseInt)
+                      .sorted(Comparator.naturalOrder())
+                      .collect(Collectors.toList());
         return numberSorted;
     }
 
