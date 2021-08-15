@@ -16,16 +16,16 @@ public class HomeWorkTen {
         String[] array = {"1, 2, 0", "4, 200, 5", "3", "3"};
         System.out.print("\u001B[32m ***Task #1*** \u001B[0m");
         System.out.println("\u001B[31m Print ReturnStringOddIndex \u001B[0m");
-        System.out.println(ReturnStringOddIndex(nameListString));
+        System.out.println(returnStringOddIndex(nameListString));
         System.out.print("\u001B[32m ***Task #2*** \u001B[0m");
         System.out.println("\u001B[31m Print ReturnStringReversSort \u001B[0m");
-        System.out.println(ReturnStringReversSort(nameListString));
+        System.out.println(returnStringReversSort(nameListString));
         System.out.print("\u001B[32m ***Task #3*** \u001B[0m");
         System.out.println("\u001B[31m Print ReturnStringSortArray \u001B[0m");
-        System.out.println(ReturnStringSortArray(array));
+        System.out.println(returnStringSortArray(array));
         System.out.print("\u001B[32m ***Task #4*** \u001B[0m");
         System.out.println("\u001B[31m Print LongStream (Для теста задан limit) \u001B[0m");
-        System.out.println((LongStream(25214903917L, 11L, (long) Math.pow(2, 48), 44L, 10)).collect(Collectors.toList()));
+        System.out.println((longStream(25214903917L, 11L, (long) Math.pow(2, 48), 44L, 10)).collect(Collectors.toList()));
         System.out.print("\u001B[32m ***Task #5*** \u001B[0m");
         System.out.println("\u001B[31m Print zip Stream \u001B[0m");
         Stream<String> first = Stream.of("A", "B", "C");
@@ -36,7 +36,7 @@ public class HomeWorkTen {
 
     /* Task 1 */
 
-    public static String ReturnStringOddIndex(List<String> nameListString) {
+    public static String returnStringOddIndex(List<String> nameListString) {
 
         Iterator<String> myIterator = nameListString.stream()
                                                     .iterator();
@@ -59,7 +59,7 @@ public class HomeWorkTen {
 
     /* Task 2 */
 
-    public static String ReturnStringReversSort(List<String> nameListString) {
+    public static String returnStringReversSort(List<String> nameListString) {
         return nameListString.stream()
                              .map(String::toUpperCase)
                              .sorted(Comparator.reverseOrder())
@@ -68,7 +68,7 @@ public class HomeWorkTen {
 
     // Task 3 - тут чет по условию непонятно, что нужно вернуть по тексту похоже на String.
 
-    public static List<Integer> ReturnStringSortArray(String[] array) {
+    public static List<Integer> returnStringSortArray(String[] array) {
         List<String> numbersList = Arrays.asList(array);
         String number = String.join(", ", numbersList);
         return Arrays.stream(number.split(", "))
@@ -79,7 +79,7 @@ public class HomeWorkTen {
 
     //Task 4
 
-    public static Stream<Long> LongStream(long a, long c, long m, long seed, int limit) {
+    public static Stream<Long> longStream(long a, long c, long m, long seed, int limit) {
         return Stream.iterate(seed, n -> (a * n + c) % m)
                      .limit(limit);
     }
