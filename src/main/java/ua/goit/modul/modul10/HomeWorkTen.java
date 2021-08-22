@@ -9,7 +9,6 @@ import java.util.stream.Stream;
 
 public class HomeWorkTen {
 
-
     public static void main(String[] args) {
 
         List<String> nameListString = Arrays.asList("Ivan", "John", "Peter", "Bill", "Rodrigo", "Arnold", "Yen", "David");
